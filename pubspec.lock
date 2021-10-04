@@ -152,11 +152,9 @@ packages:
   get:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "8a8c64240f4a7b49c9fc66b55771695e2c0ccc37"
-      url: "https://github.com/jonataslaw/getx.git"
-    source: git
+      name: get
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "4.3.8"
   google_sign_in:
     dependency: "direct main"
@@ -311,5 +309,5 @@ packages:
     source: hosted
     version: "2.1.0"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=2.14.0 <3.0.0"
   flutter: ">=2.0.0"

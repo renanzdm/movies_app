@@ -1,4 +1,3 @@
-
 class MovieModel {
   final int id;
   final String title;
@@ -15,13 +14,12 @@ class MovieModel {
     required this.favorite,
   });
 
-
   factory MovieModel.fromMap(Map<String, dynamic> map) {
     return MovieModel(
       id: map['id'] ?? 0,
       title: map['title'] ?? '',
       releaseDate: map['release_date'] ?? '',
-      posterPath: 'https://image.tmdb.org/t/p/w500/${map['poster_path']}',
+      posterPath: map['poster_path'],
       genres: List<int>.from(map['genre_ids'] ?? const []),
       favorite: map['favorite'] ?? false,
     );
@@ -43,5 +41,16 @@ class MovieModel {
       genres: genres ?? this.genres,
       favorite: favorite ?? this.favorite,
     );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'release_date': releaseDate,
+      'poster_path': posterPath,
+      'genre_ids': genres,
+      'favorite': favorite,
+    };
   }
 }

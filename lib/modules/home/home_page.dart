@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:movies_app/app/ui/movies_app_icons_icons.dart';
 import 'package:movies_app/app/ui/theme_extension.dart';
 import 'package:movies_app/modules/favorites/favorite_page.dart';
+import 'package:movies_app/modules/favorites/favorites_bindings.dart';
 import 'package:movies_app/modules/movies/movies_bindings.dart';
 import 'package:movies_app/modules/movies/movies_page.dart';
 import 'package:movies_app/modules/home/home_controller.dart';
@@ -42,7 +43,9 @@ class HomePage extends GetView<HomeController> {
           }
           if (settings.name == '/favorites') {
             return GetPageRoute(
-                settings: settings, page: () => const FavoritePage());
+                settings: settings,
+                page: () => const FavoritePage(),
+                binding: FavoritesBindings());
           }
           return null;
         },

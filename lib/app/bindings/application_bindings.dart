@@ -13,13 +13,17 @@ import 'package:movies_app/services/movies/movies_service_impl.dart';
 class ApplicationBindings extends Bindings {
   @override
   Future<void> dependencies() async {
+    Get.lazyPut<RestClient>(() => RestClient(), fenix: true);
     Get.lazyPut<LoginRepository>(() => LoginRepositoryImpl(), fenix: true);
     Get.lazyPut<LoginService>(
         () => LoginServiceImpl(loginRepository: Get.find<LoginRepository>()),
         fenix: true);
-  Get.lazyPut(() => AuthService());
-  Get.lazyPut<RestClient>(() => RestClient());
-  Get.lazyPut<MoviesRepository>(() => MoviesRepositoryImpl(restClient: Get.find<RestClient>()));
-  Get.lazyPut<MoviesService>(() => MoviesServiceImpl(moviesRepository: Get.find<MoviesRepository>()));
+    Get.lazyPut(() => AuthService(), fenix: true);
+    Get.lazyPut<MoviesRepository>(
+        () => MoviesRepositoryImpl(restClient: Get.find<RestClient>()),
+        fenix: true);
+    Get.lazyPut<MoviesService>(
+        () => MoviesServiceImpl(moviesRepository: Get.find<MoviesRepository>()),
+        fenix: true);
   }
 }

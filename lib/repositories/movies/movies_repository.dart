@@ -5,4 +5,6 @@ abstract class MoviesRepository {
   Future<List<MovieModel>> getPopularMovies();
   Future<List<MovieModel>> getTopRated();
   Future<MovieDetailsModel?> getDetails(int id);
+  Future<void> addOrRemoveFavoriteMovie(String usertId, MovieModel movie);
+  Future<List<MovieModel>> getFavoritesMovies(String userId);
 }
